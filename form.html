@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Form</title>
+</head>
+<body>
+  
+    <div class="enca">
+
+        <a  id ="Personalizer">Personalizer</a>
+        <a   href="form.html" id = "Form" >Form</a>
+        <a   href = "Images" id = "Images">Images</a>
+        <a href="Mode" id ="Mode">Mode</a>
+
+
+    </div>
+
+
+    <form action="form.php" method="post">
+        
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name"><br><br>
+
+
+
+
+
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="aaa@abcd.es">
+
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="">Select your country</option>
+            <option value="es">Spain</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+        </select>
+        
+
+
+        <input type="submit" value="Validate">
+
+
+    </form>
+
+    
+</body>
+</html>
