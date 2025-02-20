@@ -1,0 +1,29 @@
+
+.enca {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    
+    padding: 15px;
+}
+
+
+#Personalizer, #Form, #Images {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+body {
+    background-color: rgb(34, 87, 146);
+    color: rgb(0, 0, 0);
+    padding: 35px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
