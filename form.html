@@ -31,6 +31,9 @@
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" placeholder="aaa@abcd.es">
+        <button type="button" class="validate-button" onclick="validateEmail()">Validate</button>
+        <span id="emailError">Email is not correct, please try again :(</span>
+        <span id="emailSuccess">Email is valid :)</span>
 
 
         <label>Gender:</label>
@@ -45,8 +48,11 @@
         <select id="country" name="country">
             <option value="">Select your country</option>
             <option value="es">Spain</option>
+              
+                
             <option value="fr">France</option>
             <option value="de">Germany</option>
+                    
         </select>
         
 
@@ -55,6 +61,26 @@
 
 
     </form>
+
+    <script>
+
+function validateEmail() {
+            var email = document.getElementById('email').value;
+            var emailError = document.getElementById('emailError');
+            var emailSuccess = document.getElementById('emailSuccess');
+
+            // Expresión regular para validar el correo electrónico
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailPattern.test(email)) {
+                emailError.style.display = 'none';
+                emailSuccess.style.display = 'inline';
+            } else {
+                emailError.style.display = 'inline';
+                emailSuccess.style.display = 'none';
+            }
+        }
+    </script>
 
     
 </body>
