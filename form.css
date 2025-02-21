@@ -60,10 +60,17 @@ input[type="text"],
         }
 
         .gender-options {
-            display: flex;
+            display: flex; 
+            flex-direction: row;
             gap: 15px; 
             margin-bottom: 20px;
         }
+        .gender-options label {
+            margin: 0;
+            font-weight: normal;
+        }
+        
+       
 
         input[type="radio"] {
             margin-right: 8px; 
@@ -113,5 +120,45 @@ input[type="text"],
 
         .validate-button:hover {
             background-color: #0056b3;
+        }
+
+
+
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .enca {
+            background-color: #222;
+        }
+
+        .dark-mode .enca a {
+            color: #fff;
+        }
+
+        .dark-mode form {
+            background-color: #444;
+            border-color: #555;
+            color: #fff;
+        }
+
+        .dark-mode input[type="text"],
+        .dark-mode input[type="email"],
+        .dark-mode select {
+            background-color: #555;
+            color: #fff;
+            border-color: #666;
+        }
+
+        .dark-mode input[type="submit"],
+        .dark-mode .validate-button {
+            background-color: #666;
+            color: #fff;
+        }
+
+        .dark-mode input[type="submit"]:hover,
+        .dark-mode .validate-button:hover {
+            background-color: #777;
         }
 
