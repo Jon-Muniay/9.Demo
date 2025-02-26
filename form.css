@@ -11,6 +11,10 @@ body {
     height: 100vh; 
 }
 
+.hidden {
+     visibility: hidden; height: 0; 
+    }
+
 .enca {
     display: flex;
     justify-content: center;
@@ -34,8 +38,8 @@ body {
 }
 
 form {
-    width: 500px;
-    padding: 30px;
+    width: 550px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -53,7 +57,7 @@ input[type="text"],
         select {
             width: 100%;
             padding: 12px; 
-            margin-bottom: 20px; 
+            margin-bottom: 1px; 
             border: 1px solid #ccc;
             border-radius: 6px; 
             font-size: 16px; 
@@ -108,11 +112,11 @@ input[type="text"],
 
         .validate-button {
             margin-top: 15px; 
-            padding: 12px 24px; 
-            background-color: #726c6c;
+            padding: 12px 250px; 
+            background-color: #d4d4d4;
             color: rgb(0, 0, 0);
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 16px; 
             ;
