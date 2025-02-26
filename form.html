@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="form.css">
     <title>Form</title>
+ 
 </head>
 <body>
   
@@ -45,24 +46,98 @@
         <label for="other">Other</label>
 
         <label for="country">Country:</label>
-        <select id="country" name="country">
-            <option value="">Select your country</option>
-            <option value="es">Spain</option>
-              
-                
-            <option value="fr">France</option>
-            <option value="de">Germany</option>
-                    
-        </select>
-        
-
-
-        <input type="submit" value="Validate">
-
+        <form action="form.php" method="post">
+            <label for="country">Country:</label>
+            <select id="country" name="country" onchange="updateProvinces()">
+                <option value="">Select your country</option>
+                <option value="es">Spain</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+            </select>
+    
+            <div id="province-container" style="display:none;">
+                <label for="province">Province:</label>
+                <select id="province" name="province" onchange="updateCities()">
+                    <option value="">Select a province</option>
+                </select>
+            </div>
+    
+            <div id="city-container" style="display:none;">
+                <label for="city">City:</label>
+                <select id="city" name="city">
+                    <option value="">Select a city</option>
+                </select>
+            </div>
+    
+            <input type="submit" value="Submit">
+        </form>
 
     </form>
 
     <script>
+
+const data = {
+            es: {
+                "Navarra": ["Sanguesa", "Pamplona", "Estella"],
+                "Cataluña": ["Barcelona", "Badalona", "Hospitalet"],
+                "Pais vasco": ["Bilbao","San Sebastian","Tolosa"]
+            },
+            fr: {
+                "Île-de-France": ["Paris", "Versailles", "Boulogne-Billancourt"],
+                "Provence-Alpes": ["Marseille", "Nice", "Toulon"]
+            },
+            de: {
+                "Bavaria": ["Munich", "Nuremberg", "Augsburg"],
+                "Berlin": ["Berlin"]
+            }
+        };
+
+        function updateProvinces() {
+            let country = document.getElementById('country').value;
+            let provinceSelect = document.getElementById('province');
+            let citySelect = document.getElementById('city');
+            let provinceContainer = document.getElementById('province-container');
+            let cityContainer = document.getElementById('city-container');
+            
+            provinceSelect.innerHTML = '<option value="">Select a province</option>';
+            citySelect.innerHTML = '<option value="">Select a city</option>';
+            cityContainer.style.display = 'none';
+            
+            if (country && data[country]) {
+                provinceContainer.style.display = 'block';
+                for (let province in data[country]) {
+                    let option = document.createElement('option');
+                    option.value = province;
+                    option.textContent = province;
+                    provinceSelect.appendChild(option);
+                }
+            } else {
+                provinceContainer.style.display = 'none';
+            }
+        }
+
+        function updateCities() {
+            let country = document.getElementById('country').value;
+            let province = document.getElementById('province').value;
+            let citySelect = document.getElementById('city');
+            let cityContainer = document.getElementById('city-container');
+            
+            citySelect.innerHTML = '<option value="">Select a city</option>';
+            
+            if (country && province && data[country] && data[country][province]) {
+                cityContainer.style.display = 'block';
+                data[country][province].forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            } else {
+                cityContainer.style.display = 'none';
+            }
+        }
+
+        
 
 function validateEmail() {
             var email = document.getElementById('email').value;
