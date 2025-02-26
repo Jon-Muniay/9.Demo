@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <link rel="stylesheet" href="images.css">
+</head>
+<body>
+
+    <div class="enca">
+        <a href="#" id="Personalizer">Personalizer</a>
+        <a href="form.html" id="Form">Form</a>
+        <a href="images.html" id="Images">Images</a>
+        <a href="mode.html" id="Mode">Mode</a>
+    </div>
+
+    <div class="ima">
+        <div class="change">
+            <h2>Magic Button: Create & Change Image</h2>
+            <button onclick="changeImage()">Change Image!</button>
+            <br>
+            <img id="dynamicImage" src="images1.png" alt="Random Image">
+        </div>
+
+        <div class="change">
+            <h2>AutoLoading</h2>
+            <img src="css-logo.png" alt="CSS Logo">
+        </div>
+    </div>
+
+    <script>
+        const images = ["images1.png", "images2.png", "images3.png", "images4.png"];
+        let lastIndex = -1; 
+
+        function changeImage() {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * images.length);
+            } while (newIndex === lastIndex); 
+
+            lastIndex = newIndex;
+            document.getElementById('dynamicImage').src = images[newIndex];
+        }
+    </script>
+
+</body>
+</html>
