@@ -9,7 +9,7 @@
 <body>
 
     <div class="enca">
-        <a href="#" id="Personalizer">Personalizer</a>
+        <a href="personalizer.html" id="Personalizer">Personalizer</a>
         <a href="form.html" id="Form">Form</a>
         <a href="images.html" id="Images">Images</a>
         <a href="mode.html" id="Mode">Mode</a>
@@ -25,23 +25,35 @@
 
         <div class="change">
             <h2>AutoLoading</h2>
-            <img src="css-logo.png" alt="CSS Logo">
+            <img id="autoImage" src="css-logo.png" alt="CSS Logo">
         </div>
     </div>
 
     <script>
         const images = ["images1.png", "images2.png", "images3.png", "images4.png"];
-        let lastIndex = -1; 
+        let lastIndex = -1;
 
         function changeImage() {
             let newIndex;
             do {
                 newIndex = Math.floor(Math.random() * images.length);
-            } while (newIndex === lastIndex); 
+            } while (newIndex === lastIndex);
 
             lastIndex = newIndex;
             document.getElementById('dynamicImage').src = images[newIndex];
         }
+
+        function autoChangeImage() {
+            let autoIndex;
+            do {
+                autoIndex = Math.floor(Math.random() * images.length);
+            } while (autoIndex === lastIndex);
+
+            lastIndex = autoIndex;
+            document.getElementById('autoImage').src = images[autoIndex];
+        }
+
+        setInterval(autoChangeImage, 200); 
     </script>
 
 </body>
