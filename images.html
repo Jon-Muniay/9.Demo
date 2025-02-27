@@ -12,7 +12,7 @@
         <a href="personalizer.html" id="Personalizer">Personalizer</a>
         <a href="form.html" id="Form">Form</a>
         <a href="images.html" id="Images">Images</a>
-        <a href="mode.html" id="Mode">Mode</a>
+        <a href="#" id="Mode" onclick="toggleDarkMode()">Mode</a>
     </div>
 
     <div class="ima">
@@ -54,6 +54,10 @@
         }
 
         setInterval(autoChangeImage, 200); 
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
     </script>
 
 </body>
