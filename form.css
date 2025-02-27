@@ -11,9 +11,12 @@ body {
     height: 100vh; 
 }
 
-.hidden {
-     visibility: hidden; height: 0; 
-    }
+.dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+
 
 .enca {
     display: flex;
@@ -128,41 +131,4 @@ input[type="text"],
 
 
 
-        body.dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .dark-mode .enca {
-            background-color: #222;
-        }
-
-        .dark-mode .enca a {
-            color: #fff;
-        }
-
-        .dark-mode form {
-            background-color: #444;
-            border-color: #555;
-            color: #fff;
-        }
-
-        .dark-mode input[type="text"],
-        .dark-mode input[type="email"],
-        .dark-mode select {
-            background-color: #555;
-            color: #fff;
-            border-color: #666;
-        }
-
-        .dark-mode input[type="submit"],
-        .dark-mode .validate-button {
-            background-color: #666;
-            color: #fff;
-        }
-
-        .dark-mode input[type="submit"]:hover,
-        .dark-mode .validate-button:hover {
-            background-color: #777;
-        }
-
+     
