@@ -13,8 +13,8 @@
 
         <a  id ="Personalizer">Personalizer</a>
         <a   href="form.html" id = "Form" >Form</a>
-        <a   href = "Images" id = "Images">Images</a>
-        <a href="Mode" id ="Mode">Mode</a>
+        <a   href = "images.html" id = "Images">Images</a>
+        <a href="#" id="Mode" onclick="toggleDarkMode()">Mode</a>
 
 
     </div>
@@ -154,6 +154,10 @@ function validateEmail() {
                 emailError.style.display = 'inline';
                 emailSuccess.style.display = 'none';
             }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
     </script>
 
