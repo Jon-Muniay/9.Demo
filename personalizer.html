@@ -3,26 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Personalizer.css">
-    <title>Menu Personalizacion</title>
+    <title>Personalizer</title>
+    <link rel="stylesheet" href="personalizer.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><div><a id="personalizer-button" onclick="toggleMenu()">Personalizer</a></div></li>
+            <li><div><a href="form.html">Form</a></div></li>
+            <li><div><a href="images.html">Images</a></div></li>
+        </ul>
+    </nav>
 
-    <div class="enca">
-
-        <a   id ="Personalizer">Personalizer</a>
-        <a href="form.html"  id = "Form">Form</a>
-        <a href="images.html" id = "Images">Images</a>
-
-
+    <div class="container" id="main-container">
+        <h1 id="title">Welcome to the Personalizer</h1>
+        <p id="paragraph">You can customize the style of this paragraph.</p>
+        <p id="click-text">Click to personalize.</p>
+        
+        <div class="customizer" id="customizerMenu">
+            <div>Background Color</div>
+            <div class="color-options">
+                <div class="red" onclick="changeBackground('red')"></div>
+                <div class="blue" onclick="changeBackground('blue')"></div>
+                <div class="yellow" onclick="changeBackground('yellow')"></div>
+                <div class="orange" onclick="changeBackground('orange')"></div>
+                <div class="black" onclick="changeBackground('black')"></div>
+            </div>
+            <div>Change Text Color</div>
+            <div class="color-options">
+                <div class="red" onclick="changeTextColor('red')"></div>
+                <div class="green" onclick="changeTextColor('green')"></div>
+                <div class="blue" onclick="changeTextColor('blue')"></div>
+                <div class="black" onclick="changeTextColor('black')"></div>
+                <div class="white" onclick="changeTextColor('white')"></div>
+            </div>
+            <div>Change Font Size</div>
+            <div class="size-options">
+                <div onclick="changeFontSize('10px')">XS</div>
+                <div onclick="changeFontSize('14px')">S</div>
+                <div onclick="changeFontSize('18px')">M</div>
+                <div onclick="changeFontSize('22px')">L</div>
+                <div onclick="changeFontSize('35px')">XL</div>
+            </div>
+            <div>Change Font Family</div>
+            <div class="font-options">
+                <div onclick="changeFont('Arial')">A</div>
+                <div onclick="changeFont('Times New Roman')">T</div>
+                <div onclick="changeFont('Courier New')">C</div>
+                <div onclick="changeFont('Fantasy')">F</div>
+                <div onclick="changeFont('Monospace')">M</div>
+            </div>
+        </div>
     </div>
 
-    
+    <script>
+        
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+            console.log("Background color changed to:", color); 
+        }
+
+        function changeTextColor(color) {
+            document.getElementById('title').style.color = color;
+            document.getElementById('paragraph').style.color = color;
+            document.getElementById('click-text').style.color = color;
+        }
+
+        function changeFont(font) {
+            document.getElementById('title').style.fontFamily = font;
+            document.getElementById('paragraph').style.fontFamily = font;
+            document.getElementById('click-text').style.fontFamily = font;
+        }
+
+        function changeFontSize(size) {
+            document.getElementById('title').style.fontSize = size;
+            document.getElementById('paragraph').style.fontSize = size;
+            document.getElementById('click-text').style.fontSize = size;
+        }
 
         
-        <h1>Welcome to Personalizer</h1>
-        <p>This is paragraph that you can adapt its content</p>
-        <p>Click to Personalizer banner</p>
-    
+        function toggleMenu() {
+            const menu = document.getElementById("customizerMenu");
+            menu.style.display = menu.style.display === "none" ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
