@@ -5,78 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="form.css">
     <title>Form</title>
- 
 </head>
 <body>
-  
     <div class="enca">
-
-        <a  id ="Personalizer">Personalizer</a>
-        <a   href="form.html" id = "Form" >Form</a>
-        <a   href = "images.html" id = "Images">Images</a>
+        <a id="Personalizer">Personalizer</a>
+        <a href="form.html" id="Form">Form</a>
+        <a href="images.html" id="Images">Images</a>
         <a href="#" id="Mode" onclick="toggleDarkMode()">Mode</a>
-
-
     </div>
 
-
-    <form action="form.php" method="post">
-        
+    <form id="myForm" action="form.php" method="post" onsubmit="showMessage(event)">
         <label for="fullname">Full Name:</label><br>
         <input type="text" id="fullname" name="fullname" placeholder="Enter your full name"><br><br>
-
-
-
-
-
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" placeholder="aaa@abcd.es">
         <button type="button" class="validate-button" onclick="validateEmail()">Validate</button>
         <span id="emailError">Email is not correct, please try again :(</span>
-        <span id="emailSuccess">Email is valid :)</span>
-
+        <span id="emailSuccess">Email is valid :)</span><br><br>
 
         <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label>
+        <div class="gender-options">
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
 
         <label for="country">Country:</label>
-        <form action="form.php" method="post">
-            <label for="country">Country:</label>
-            <select id="country" name="country" onchange="updateProvinces()">
-                <option value="">Select your country</option>
-                <option value="es">Spain</option>
-                <option value="fr">France</option>
-                <option value="de">Germany</option>
-            </select>
-    
-            <div id="province-container" style="display:none;">
-                <label for="province">Province:</label>
-                <select id="province" name="province" onchange="updateCities()">
-                    <option value="">Select a province</option>
-                </select>
-            </div>
-    
-            <div id="city-container" style="display:none;">
-                <label for="city">City:</label>
-                <select id="city" name="city">
-                    <option value="">Select a city</option>
-                </select>
-            </div>
-    
-            <input type="submit" value="Submit">
-        </form>
+        <select id="country" name="country" onchange="updateProvinces()">
+            <option value="">Select your country</option>
+            <option value="es">Spain</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+        </select><br><br>
 
+        <div id="province-container" style="display:none;">
+            <label for="province">Province:</label>
+            <select id="province" name="province" onchange="updateCities()">
+                <option value="">Select a province</option>
+            </select>
+        </div><br>
+
+        <div id="city-container" style="display:none;">
+            <label for="city">City:</label>
+            <select id="city" name="city">
+                <option value="">Select a city</option>
+            </select>
+        </div><br>
+
+        <input type="submit" value="Send">
     </form>
 
-    <script>
+    
+    <div id="successMessage" style="display: none; margin-top: 20px; color: green; font-weight: bold;">
+       ! send!
+    </div>
 
-const data = {
+    <script>
+        const data = {
             es: {
                 "Navarra": ["Sanguesa", "Pamplona", "Estella"],
                 "Cataluña": ["Barcelona", "Badalona", "Hospitalet"],
@@ -137,14 +126,11 @@ const data = {
             }
         }
 
-        
-
-function validateEmail() {
+        function validateEmail() {
             var email = document.getElementById('email').value;
             var emailError = document.getElementById('emailError');
             var emailSuccess = document.getElementById('emailSuccess');
 
-            // Expresión regular para validar el correo electrónico
             var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (emailPattern.test(email)) {
@@ -159,8 +145,12 @@ function validateEmail() {
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
-    </script>
 
-    
+        function showMessage(event) {
+            event.preventDefault(); 
+            document.getElementById('myForm').style.display = 'none'; 
+            document.getElementById('successMessage').style.display = 'block'; 
+        }
+    </script>
 </body>
 </html>
