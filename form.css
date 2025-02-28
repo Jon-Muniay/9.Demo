@@ -1,22 +1,21 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    height: 100vh;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 .dark-mode {
     background-color: #1e1e1e;
     color: white;
 }
-
-
 
 .enca {
     display: flex;
@@ -32,7 +31,6 @@ body {
 
 .enca a {
     color: white;
-    margin: 0;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
@@ -41,12 +39,19 @@ body {
 }
 
 form {
-    width: 550px;
+    width: 400px; 
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    overflow: hidden; 
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.dark-mode form {
+    background-color: #333;
+    border-color: #555;
 }
 
 label {
@@ -56,79 +61,78 @@ label {
 }
 
 input[type="text"],
-        input[type="email"],
-        select {
-            width: 100%;
-            padding: 12px; 
-            margin-bottom: 1px; 
-            border: 1px solid #ccc;
-            border-radius: 6px; 
-            font-size: 16px; 
-        }
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
+}
 
-        .gender-options {
-            display: flex; 
-            flex-direction: row;
-            gap: 15px; 
-            margin-bottom: 20px;
-        }
-        .gender-options label {
-            margin: 0;
-            font-weight: normal;
-        }
-        
-       
+.dark-mode input,
+.dark-mode select {
+    background-color: #444;
+    color: white;
+    border-color: #666;
+}
 
-        input[type="radio"] {
-            margin-right: 8px; 
-            transform: scale(1.2); 
-        }
+.gender-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
-        input[type="submit"] {
-            width: 100%;
-            padding: 15px; 
-            background-color: #726c6c;
-            color: rgb(0, 0, 0);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px; 
-        }
+input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
 
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #726c6c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; 
+}
 
-        #emailError {
-            color: red;
-            display: none;
-            font-size: 14px; 
-        }
+input[type="submit"]:hover {
+    background-color: #218838;
+}
 
-        #emailSuccess {
-            color: green;
-            display: none;
-            font-size: 14px; 
-        }
+.validate-button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #d4d4d4;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; 
+}
 
-       
+.dark-mode .validate-button {
+    background-color: #555;
+    color: white;
+}
 
-        .validate-button {
-            margin-top: 15px; 
-            padding: 12px 250px; 
-            background-color: #d4d4d4;
-            color: rgb(0, 0, 0);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px; 
-            ;
-        }
+#emailError, #emailSuccess {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
 
-        .validate-button:hover {
-            background-color: #0056b3;
-        }
+#emailError {
+    color: red;
+}
 
-
-
-     
+#emailSuccess {
+    color: green;
+}
